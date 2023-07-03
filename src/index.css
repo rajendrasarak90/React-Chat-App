@@ -1,13 +1,243 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: sans-serif;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+    background-color: rgb(220, 233, 233);
 }
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.App {
+    height: 100vh;
+}
+
+/* main container of app */
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    margin:0px auto;
+    width: 60%;
+    padding: 0px 0px 18px 30px;
+    box-shadow: 0 0 5px 1px rgb(194, 194, 194);
+    height: 100%;
+}
+
+/* header */
+.header{
+    width: 96%;
+    border-bottom: 1.5px solid gray;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-right: 30px;
+    align-self:center;
+    color: rgb(105, 105, 105);
+    
+}
+.group-name h4{
+    color: rgb(46, 46, 46);
+}
+.group-name p{
+    font-size: 13px;
+    margin: 5px 0px 7px 0px;
+}
+.group-icon span{
+    font-size: 13px;
+    margin-right: 8px;
+}
+.group-icon i{
+    font-size: 13px;
+}
+
+/* message box which contains all the messages */
+.message-thread {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 7px;
+    overflow-y: auto;
+    width: 100%;
+}
+/* scrollbar */
+.message-thread::-webkit-scrollbar {
+    width: 8px; 
+}
+/* scrollbar track */
+.message-thread::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+/* scrollbar handle */
+.message-thread::-webkit-scrollbar-thumb {
+    background: #bbbbbb; 
+    border-radius: 4px; 
+}
+.message-thread::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8; 
+}
+/* single message */
+.message {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-bottom: 1px;
+    border-radius: 5px;
+    width: 75%;
+}
+.name-box{
+    display: flex;
+    align-items: center;
+}
+.userIcon{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: white;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.username {
+    font-weight: bold;
+    color: rgb(87, 87, 87);
+    margin-right: 7px;
+}
+.timeStamp{
+    color: rgb(110, 110, 110);
+    font-size: 11px;
+    margin-right: 15px;
+}
+.like-button {
+    padding: 3px 5px;
+    background-color: rgb(255, 97, 97);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.like-button:hover {
+    background-color:rgb(214, 71, 71);
+}
+.description{
+    color: rgb(99, 99, 99);
+    background-color: white;
+    padding: 12px 20px 15px 12px;
+    width: fit-content;
+    margin-left: 47px;
+    margin-top: -5px;
+    border-radius: 0px 12px 12px;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+/* Input conatainer for user to send message */
+.input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-right: 30px;
+}
+input[type='text'] {
+    padding: 10px 15px;
+    width: 55%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-right: 7px;
+    flex: 1;
+}
+input[type='text']:focus {
+    outline: none;
+}
+button {
+    padding: 9px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+/* mention list shows when user types @ */
+.mention-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+.mention {
+    padding: 3px 5px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    color: rgb(73, 73, 73);
+}
+.mention:hover {
+    background-color: #e0e0e0;
+}
+
+/* colors for the user icons */
+.blue{
+    background-color: rgb(101, 101, 209);
+}
+.red{
+    background-color:rgb(214, 102, 102);
+}
+.green{
+    background-color: rgb(98, 206, 98);
+}
+.yellow{
+    background-color:rgb(216, 216, 107);
+}
+.pink{
+    background-color: rgb(219, 117, 197);
+}
+
+/* media quries for resopnsive design */
+@media (max-width: 950px){
+    .container{
+        width: 90%;
+        padding: 0px 0px 15px 10px;
+    }
+    input[type='text'] {
+        width: 70%;
+    }
+    .input-container{
+        padding-right: 10px;
+    }
+    button {
+        padding: 7px;
+        font-size: 12px;
+    }
+    .header{
+        margin-right: 10px;
+    
+    }
+}
+
+@media (max-width: 550px){
+    .container{
+        width: 100%;
+    }
+    input[type='text'] {
+        width: 70%;
+    }
+    button {
+        padding: 7px;
+        font-size: 12px;
+    }
+}
+  
