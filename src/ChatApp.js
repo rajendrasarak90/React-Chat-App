@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import Picker from "emoji-picker-react";
 
 // users array
 const user_list = ["Alan", "Bob", "Carol", "Dean", "Elin"];
@@ -9,6 +10,7 @@ const ChatApp = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [showMentions, setShowMentions] = useState(false);
+  const [showPicker, setShowPicker] = useState(false);
   const messageThreadRef = useRef(null);
 
   // keeping the scroll bar at bottom for every new message
@@ -83,6 +85,11 @@ const ChatApp = () => {
     setShowMentions(false);
   };
 
+  const handleEmojiClick = (emojiObj) => {
+    setInputValue((prevInput) => prevInput + emojiObj.emoji);
+    setShowPicker(false);
+  };
+
   // it is use to increase like count as clicked.
   const handleLike = (index) => {
     setMessages((prevMessages) =>
@@ -146,7 +153,12 @@ const ChatApp = () => {
           onKeyDown={handleSendMessageByKey}
         />
         <button onClick={handleSendMessage}>Send</button>
+        <i
+          className="fa-regular fa-face-smile picker-icon"
+          onClick={() => setShowPicker((val) => !val)}
+        ></i>
       </div>
+      {showPicker && <Picker onEmojiClick={handleEmojiClick} />}
     </div>
   );
 };

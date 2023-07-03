@@ -27,9 +27,10 @@ body{
     justify-content:space-between;
     margin:0px auto;
     width: 60%;
-    padding: 0px 0px 18px 30px;
+    padding: 0px 0px 20px 30px;
     box-shadow: 0 0 5px 1px rgb(194, 194, 194);
     height: 100%;
+    position: relative;
 }
 
 /* header */
@@ -42,7 +43,7 @@ body{
     margin-right: 30px;
     align-self:center;
     color: rgb(105, 105, 105);
-    
+    height: 44px;
 }
 .group-name h4{
     color: rgb(46, 46, 46);
@@ -64,6 +65,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex-grow: 1;
     margin-bottom: 7px;
     overflow-y: auto;
     width: 100%;
@@ -145,6 +147,7 @@ body{
     display: flex;
     justify-content: center;
     padding-right: 30px;
+    height: 39px;
 }
 input[type='text'] {
     padding: 10px 15px;
@@ -167,6 +170,19 @@ button {
 }
 button:hover {
     background-color: #0056b3;
+}
+.picker-icon{
+    cursor: pointer;
+    font-size: 30px;
+    color: rgb(124, 124, 124);
+    margin: 4px 0px 0px 5px;
+}
+.EmojiPickerReact{
+    width: 40% !important;
+    position: absolute !important;
+    z-index: 1;
+    bottom: 63px;
+    right: 10px;
 }
 
 /* mention list shows when user types @ */
@@ -210,7 +226,7 @@ button:hover {
 @media (max-width: 950px){
     .container{
         width: 90%;
-        padding: 0px 0px 15px 10px;
+        padding: 0px 0px 20px 10px;
     }
     input[type='text'] {
         width: 70%;
@@ -226,6 +242,9 @@ button:hover {
         margin-right: 10px;
     
     }
+    .EmojiPickerReact{
+        width: 65% !important;
+    }
 }
 
 @media (max-width: 550px){
@@ -239,5 +258,9 @@ button:hover {
         padding: 7px;
         font-size: 12px;
     }
+    .EmojiPickerReact{
+        width: 80% !important;
+    }
+    
 }
   
